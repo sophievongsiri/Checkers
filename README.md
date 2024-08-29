@@ -1,1 +1,1 @@
-# C++ checkers
+This program allows the user to engage the computer in a game of checkers. Users input the checker they want to move and where they want to move it to. The computer's move is randomly generated. If the user or computer chooses a checker that is able to jump the opponent's, the checker is forced to jump. If the user or computer's checker reaches the furthest row, that checker becomes a king and has the ability to move in different directions. Once either the user or computer's checkers are all jumped and captured, the game will end and declare a winner.
