@@ -44,11 +44,11 @@ public:
             }
         }
 
-        for (int i = 5; i < 8; i += 2) {
+        /*for (int i = 5; i < 8; i += 2) {
             for (int j = 0; j < 8; j += 2) {
                 board[i][j] = 'R';
             }
-        }
+        }*/
         for (int i = 6; i < 7; i += 2) {
             for (int j = 1; j < 8; j += 2) {
                 board[i][j] = 'R';
@@ -331,7 +331,7 @@ public:
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j] == 'K' || board[i][j] == 'B') {
-                    NoComputer = false;
+                    NoUser = false;
                     break;
                 }
             }
@@ -339,7 +339,7 @@ public:
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
                 if (board[i][j] == 'Q' || board[i][j] == 'R') {
-                    NoUser = false;
+                    NoComputer = false;
                     break;
                 }
             }
@@ -366,17 +366,13 @@ int main() {
 
     while (true) {
         play.Choose_Move();
-        if (play.Check_Win() == 1) {
-            break;
-        }
-        if (play.Check_Win() == 0) {
+        if ((play.Check_Win() == 1) || (play.Check_Win()) == 0) {
             break;
         }
     }
 
     return 0;
 }
-
 
 
 
