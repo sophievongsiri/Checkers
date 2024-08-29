@@ -381,5 +381,4 @@ int main() {
 
 
 
-//check why Q jumped down right didn't kill B
-//check why B jumped to row 7, didnt turn to K
+
