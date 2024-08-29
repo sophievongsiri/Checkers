@@ -97,7 +97,7 @@ public:
                         board[row1 + 1][column1 - 1] = ' ';
                         jumped = true;
                     }
-                    else if (row1 - 2 >=0 && column1 - 2 >= 0 && (board[row1 - 1][column1 - 1] == 'R' || board[row1 - 1][column1 - 1] == 'Q') && board[row1 - 2][column1 - 2] == ' ') {
+                    else if (row1 - 2 >= 0 && column1 - 2 >= 0 && (board[row1 - 1][column1 - 1] == 'R' || board[row1 - 1][column1 - 1] == 'Q') && board[row1 - 2][column1 - 2] == ' ') {
                         cout << "You must jump." << endl;
                         board[row1 - 2][column1 - 2] = 'K';
                         board[row1][column1] = ' ';
@@ -128,7 +128,7 @@ public:
                         continue;
                     }
                     if ((board[row1][column1] == 'K') && (board[row2][column2] == ' ')) {
-                        int row_change = row2 - row1;                        
+                        int row_change = row2 - row1;
                         int column_change = column2 - column1;
                         if ((row_change == 1 || row_change == -1) && (column_change == 1 || column_change == -1)) {
                             board[row2][column2] = 'K';
@@ -144,7 +144,7 @@ public:
                     else {
                         cout << "Invalid move. Choose again." << endl;
                     }
-                }           
+                }
                 if (board[row1][column1] == 'B') {
                     bool jumped = false;
 
@@ -154,7 +154,7 @@ public:
                         board[row1][column1] = ' ';
                         board[row1 + 1][column1 + 1] = ' ';
                         if ((row1 + 2) == 7) {
-                            board[row1 + 1][column1] = 'K';
+                            board[row1 + 2][column1 + 2] = 'K';
                         }
                         jumped = true;
                     }
@@ -163,7 +163,7 @@ public:
                         board[row1 + 2][column1 - 2] = 'B';
                         board[row1][column1] = ' ';
                         board[row1 + 1][column1 - 1] = ' ';
-                        if ((row1+2) == 7) {
+                        if ((row1 + 2) == 7) {
                             board[row1 + 2][column1 - 2] = 'K';
                         }
                         jumped = true;
@@ -217,7 +217,7 @@ public:
 
                 while (true) {
                     row1 = rand() % 8;
-                    column1 = rand() % 8;                    
+                    column1 = rand() % 8;
 
                     if (board[row1][column1] == 'Q') {
                         row2 = (rand() % 2 == 0) ? row1 - 1 : row1 + 1;
@@ -228,7 +228,7 @@ public:
                             cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 - 2 << ")." << endl;
                             board[row1 - 2][column1 - 2] = 'Q';
                             board[row1][column1] = ' ';
-                            board[row1 - 1][column1 - 1] = ' ';                            
+                            board[row1 - 1][column1 - 1] = ' ';
                             jumped = true;
                         }
                         else if (row1 - 2 >= 0 && column1 + 2 < 8 && (board[row1 - 1][column1 + 1] == 'B' || board[row1 - 1][column1 + 1] == 'K') && board[row1 - 2][column1 + 2] == ' ') {
@@ -236,15 +236,15 @@ public:
                             cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 + 2 << ")." << endl;
                             board[row1 - 2][column1 + 2] = 'Q';
                             board[row1][column1] = ' ';
-                            board[row1 - 1][column1 + 1] = ' ';                            
+                            board[row1 - 1][column1 + 1] = ' ';
                             jumped = true;
                         }
-                        else if (row1 + 2< 8 && column1 + 2 < 8 && (board[row1 + 1][column1 + 1] == 'B' || board[row1 + 1][column1 + 1] == 'K') && board[row1 + 2][column1 + 2] == ' ') {
+                        else if (row1 + 2 < 8 && column1 + 2 < 8 && (board[row1 + 1][column1 + 1] == 'B' || board[row1 + 1][column1 + 1] == 'K') && board[row1 + 2][column1 + 2] == ' ') {
                             cout << "Computer must jump." << endl;
                             cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 + 2 << ")." << endl;
                             board[row1 + 2][column1 + 2] = 'Q';
                             board[row1][column1] = ' ';
-                            board[row1 - 1][column1 + 1] = ' ';
+                            board[row1 + 1][column1 + 1] = ' ';
                             jumped = true;
                         }
                         else if (row1 + 2 < 8 && column1 - 2 >= 0 && (board[row1 + 1][column1 - 1] == 'B' || board[row1 + 1][column1 - 1] == 'K') && board[row1 + 2][column1 - 2] == ' ') {
@@ -252,7 +252,7 @@ public:
                             cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 + 2 << ")." << endl;
                             board[row1 + 2][column1 - 2] = 'Q';
                             board[row1][column1] = ' ';
-                            board[row1 - 1][column1 + 1] = ' ';
+                            board[row1 + 1][column1 - 1] = ' ';
                             jumped = true;
                         }
                         if (jumped) {
@@ -264,7 +264,7 @@ public:
                             if (row2 >= 0 && column2 >= 0 && column2 < 8 && board[row1][column1] == 'Q' && board[row2][column2] == ' ') {
                                 board[row2][column2] = 'Q';
                                 board[row1][column1] = ' ';
-                                cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row2 << ", " << column2 << ")." << endl;                                
+                                cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row2 << ", " << column2 << ")." << endl;
                                 Create_Board();
                                 Switch_Player();
                                 break;
@@ -275,13 +275,13 @@ public:
 
 
 
-                    if (board[row1][column1] == 'R') {  
+                    if (board[row1][column1] == 'R') {
                         row2 = row1 - 1;
-                        column2 = (rand() % 2 == 0) ? column1 - 1 : column1 + 1;                        
+                        column2 = (rand() % 2 == 0) ? column1 - 1 : column1 + 1;
                         bool jumped = false;
                         if (row1 - 2 >= 0 && column1 - 2 >= 0 && (board[row1 - 1][column1 - 1] == 'B' || board[row1 - 1][column1 - 1] == 'K') && board[row1 - 2][column1 - 2] == ' ') {
                             cout << "Computer must jump." << endl;
-                            cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1-2 << ", " << column1-2 << ")." << endl;
+                            cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 - 2 << ")." << endl;
                             board[row1 - 2][column1 - 2] = 'R';
                             board[row1][column1] = ' ';
                             board[row1 - 1][column1 - 1] = ' ';
@@ -292,7 +292,7 @@ public:
                         }
                         else if (row1 - 2 >= 0 && column1 + 2 < 8 && (board[row1 - 1][column1 + 1] == 'B' || board[row1 - 1][column1 + 1] == 'K') && board[row1 - 2][column1 + 2] == ' ') {
                             cout << "Computer must jump." << endl;
-                            cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1-2 << ", " << column1+2 << ")." << endl;
+                            cout << "Computer moved from (" << row1 << ", " << column1 << ") to (" << row1 - 2 << ", " << column1 + 2 << ")." << endl;
                             board[row1 - 2][column1 + 2] = 'R';
                             board[row1][column1] = ' ';
                             board[row1 - 1][column1 + 1] = ' ';
@@ -363,16 +363,23 @@ int main() {
     play.Create_Pieces();
     play.Create_Board();
     play.Assign_Player();
-    
+
     while (true) {
         play.Choose_Move();
         if (play.Check_Win() == 1) {
             break;
         }
-        if (play.Check_Win() == 0){
+        if (play.Check_Win() == 0) {
             break;
         }
     }
 
     return 0;
 }
+
+
+
+
+
+//check why Q jumped down right didn't kill B
+//check why B jumped to row 7, didnt turn to K
