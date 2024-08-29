@@ -1,1 +1,1 @@
-# Checkers
+# C++ checkers
